@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+var textArea = document.createElement('div')
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -22,17 +22,22 @@ function generatePassword(){
       numbers = "0123456789",
       specCharacters = "!#$%&'()*+,-./:;<=>?@^_`{|}~",
       answers = "";
+      passWord = "";
 
 if (lowercaseQ) answers += lowerCharacters;
 if (uppercaseQ) answers += upperCharacters;
 if (numberQ) answers += numbers;
+
 if (specialQ) answers += specCharacters;
 
     for (var i = 0; i < length; i++) {
-       var maxnumber = answers.length;
-      
+      var maxnumber = answers.length;
+      // Need to code a way to random select values in the string of answers while following the rules set
+      var randomNum = Math.floor(Math.random()*(answers.length));
+      var charToInsert = answers.charAt(randomNum);
+      passWord += charToInsert;
     };
-
+    return passWord;
 }
 
 // Add event listener to generate button
